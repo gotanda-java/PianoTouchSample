@@ -28,6 +28,8 @@ public class ButtonTouchListener implements View.OnTouchListener {
     @Override
     public boolean onTouch(View view, MotionEvent event) {
 
+//        PianoTouchSampleActivity.gesDetect.onTouchEvent(event);
+        
         // ƒŠƒ\[ƒX‚Ìæ“¾
         Resources res = view.getResources();
 
