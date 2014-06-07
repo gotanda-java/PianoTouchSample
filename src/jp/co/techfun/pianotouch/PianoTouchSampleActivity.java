@@ -1,5 +1,6 @@
 package jp.co.techfun.pianotouch;
 
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.res.Resources;
@@ -145,6 +146,7 @@ public class PianoTouchSampleActivity extends Activity {
         public boolean onTouch(View view, MotionEvent event) {
 
             gesDetect.onTouchEvent(event);
+            Log.i("Sound", view+" + "+event);
            
             // ÉäÉ\Å[ÉXÇÃéÊìæ
             Resources res = view.getResources();
@@ -220,7 +222,7 @@ public class PianoTouchSampleActivity extends Activity {
                     // TODO Auto-generated method stub
                     Log.v("Gesture", "onFling");
                     
-                    startPlay();
+//                    startPlay();
                     
                     return super.onFling(e1, e2, velocityX, velocityY);
                 }
@@ -232,11 +234,20 @@ public class PianoTouchSampleActivity extends Activity {
                     super.onLongPress(e);
                 }
 
+                @SuppressWarnings("static-access")
                 @Override
                 public boolean onScroll(MotionEvent e1, MotionEvent e2,
                     float distanceX, float distanceY) {
                     // TODO Auto-generated method stub
                     Log.v("Gesture", "onScroll");
+                    Log.v("Gesture", e1+"+"+e2);
+                    startPlay();
+                        try {
+                            Thread.currentThread().sleep(90);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
                     return super.onScroll(e1, e2, distanceX, distanceY);
                 }
 
